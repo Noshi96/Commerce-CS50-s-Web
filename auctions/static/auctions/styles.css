@@ -1,0 +1,39 @@
+body {
+    padding: 10px;
+}
+#example {
+  padding: 20px;
+  border-collapse:separate; 
+  border-spacing:5em;
+  float:left;
+}
+
+#example .row {
+  border: 1px solid #c9c9c9;
+  width:100%;
+}
+
+#example .row .col-sm {
+  margin-top:auto; 
+  margin-bottom: auto;
+}
+
+#example .row:not(:last-child) {
+  border-right-width: 0;
+}
+
+#example .row:not(:last-child) .row {
+  border-bottom-width: 0;
+}
+
+.message{
+  color:red;
+}
+
+.auction_left{
+  float: left;
+}
+
+.auction_right{
+  float:right;
+}

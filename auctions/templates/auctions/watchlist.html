@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Watchlist
+{% endblock %}
+
+{% block body %}
+
+<h2>Watchlist</h2>
+<div class="container" id="example">
+{% for row in watchlist %}
+    <a href="{% url 'listing' row.id %}">
+        <div class="row">
+            <div class="col-sm">
+                <img src="{{ row.url_image }}" alt="{{ row.title }}" width="300" height="300">
+            </div>
+            <div class="col-sm">
+                <h4>{{ row.title }}</h4>
+                <h4>Price: ${{ row.current_price|floatformat:2 }}</h4>
+                <p>{{ row.categories.category_name }}</p>
+                <p style="color:gray">{{ row.created_date }}</p>
+            </div>
+        </div>
+    </a>
+  {% endfor %}
+</div>
+
+{% endblock %}

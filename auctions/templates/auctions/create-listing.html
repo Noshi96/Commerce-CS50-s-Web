@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Create Listing
+{% endblock %}
+
+{% block body %}
+
+    <form action="{% url 'create_listing' %}" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.name == "description" %}
+                <div class="form-group">
+                    <textarea class="form-control" type="text" name="{{ field.name }}" placeholder="{{ field.label }}"></textarea>
+                </div>
+            {% elif field.name == "category" or field.name == "price" %}
+                <div class="form-group">
+                    {{ field }}
+                </div>
+            {% else %}
+                <div class="form-group">
+                    <input class="form-control" type="text" name="{{ field.name }}" placeholder="{{ field.label }}">
+                </div>
+            {% endif %}
+        {% endfor %}
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+{% endblock %}
+
